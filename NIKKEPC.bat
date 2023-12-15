@@ -1,0 +1,1 @@
+"C:\Users\25026\Desktop\AirtestIDE-win-1.2.14\AirtestIDE\AirtestIDE" runner "C:\Users\25026\Desktop\airtest_script\nikkePC.air"  --log "C:\Users\25026\AppData\Local\Temp\AirtestIDE\scripts\ea36bb2d3f76ad7b356278a915dae210"

@@ -5,42 +5,61 @@ from airtest.core.api import *
 import time
 import random
 
+ST.THRESHOLD=0.8
+
 auto_setup(__file__,devices=["Windows:///?title_re=NIKKE.*"])
 
 buff_num=0
 
 def outpost():
     pos=wait(Template(r"tpl1676694430396.png", record_pos=(-0.215, 0.103), resolution=(1349, 759)))
-    touch((pos[0]+50,pos[1]+100))
+    touch((pos[0]+15,pos[1]+100))
     time.sleep(1)
     touch(Template(r"tpl1676695148158.png", record_pos=(0.063, 0.187), resolution=(1349, 759)))
     wait(Template(r"tpl1676694098706.png", record_pos=(-0.001, -0.094), resolution=(1349, 759)))
     time.sleep(2)
     try:
-        touch(Template(r"tpl1676694106295.png", record_pos=(-0.0, 0.089), resolution=(1349, 759)))
-        time.sleep(2)
-        touch(Template(r"tpl1676694106295.png", record_pos=(-0.0, 0.089), resolution=(1349, 759)))
+        pos=wait(Template(r"tpl1676694106295.png", record_pos=(-0.0, 0.089), resolution=(1349, 759)))
+        time.sleep(1)
+        touch((pos[0],pos[1]),2)
+        time.sleep(1)
+        touch((pos[0],pos[1]),2)
     except:
         print("go on")
+    
+
+def daily_sweep():
     pos=wait(Template(r"tpl1676694430396.png", record_pos=(-0.215, 0.103), resolution=(1349, 759)))
-    touch((pos[0]+50,pos[1]+100))
+    touch((pos[0]+15,pos[1]+100))
     time.sleep(1)
     touch(Template(r"tpl1676695298773.png", record_pos=(-0.062, 0.187), resolution=(1349, 759)))
     time.sleep(1)
     touch(Template(r"tpl1676695327384.png", record_pos=(0.047, 0.143), resolution=(1349, 759)))
     time.sleep(1)
-    touch(Template(r"tpl1676695367359.png", record_pos=(-0.0, 0.09), resolution=(1349, 759)))
+    pos=wait(Template(r"tpl1676695367359.png", record_pos=(-0.0, 0.09), resolution=(1349, 759)))
+    touch((pos[0],pos[1]))
+    time.sleep(1)
+    touch((pos[0],pos[1]))
     time.sleep(1)
     touch(Template(r"tpl1676695389681.png", record_pos=(-0.077, 0.142), resolution=(1349, 759)))
     time.sleep(1)
     touch(Template(r"tpl1676695413310.png", record_pos=(0.126, -0.201), resolution=(1349, 759)))
-
+    
 def daily_shop():
     wait(Template(r"tpl1676695610324.png", record_pos=(-0.218, 0.103), resolution=(1349, 759)))
     touch(Template(r"tpl1676695610324.png", record_pos=(-0.218, 0.103), resolution=(1349, 759)))
-    time.sleep(3)
-    pos=exists(Template(r"tpl1676696675871.png", record_pos=(-0.379, -0.026), resolution=(1351, 760)))
-    touch((pos[0]+25,pos[1]+100))
+    pos=wait(Template(r"tpl1676696675871.png", record_pos=(-0.379, -0.026), resolution=(1351, 760)))
+    touch((pos[0]-10,pos[1]+100))
+    time.sleep(1)
+    touch(Template(r"tpl1676696880629.png", record_pos=(0.048, 0.195), resolution=(1350, 760)))
+    time.sleep(2)
+    touch(Template(r"tpl1676696913124.png", record_pos=(0.001, 0.09), resolution=(1350, 760)))
+    time.sleep(1)
+    touch((pos[0],pos[1]))
+    time.sleep(1)
+    touch(Template(r"tpl1676699995492.png", record_pos=(0.055, 0.07), resolution=(1351, 760)))
+    time.sleep(2)
+    touch((pos[0]-10,pos[1]+100))
     time.sleep(1)
     touch(Template(r"tpl1676696880629.png", record_pos=(0.048, 0.195), resolution=(1350, 760)))
     time.sleep(2)
@@ -49,19 +68,19 @@ def daily_shop():
     touch(Template(r"tpl1676696944784.png", record_pos=(-0.478, 0.073), resolution=(1351, 760)))
     time.sleep(1)
     pos=exists(Template(r"tpl1676696675871.png", record_pos=(-0.379, -0.026), resolution=(1351, 760)))
-    touch((pos[0]+30,pos[1]+100))
+    touch((pos[0]-10,pos[1]+100),2)
     time.sleep(1)
     touch(Template(r"tpl1676697133602.png", record_pos=(0.044, 0.183), resolution=(1351, 760)))
     time.sleep(2)
     touch(Template(r"tpl1676696913124.png", record_pos=(0.001, 0.09), resolution=(1350, 760)))
     time.sleep(2)
-    touch((pos[0]+125,pos[1]+100))
+    touch((pos[0]+100,pos[1]+100),2)
     time.sleep(1)
     touch(Template(r"tpl1676697133602.png", record_pos=(0.044, 0.183), resolution=(1351, 760)))
     time.sleep(2)
     touch(Template(r"tpl1676696913124.png", record_pos=(0.001, 0.09), resolution=(1350, 760)))
     time.sleep(2)
-    touch((pos[0]+240,pos[1]+100))
+    touch((pos[0]+220,pos[1]+100),2)
     time.sleep(1)
     touch(Template(r"tpl1676697133602.png", record_pos=(0.044, 0.183), resolution=(1351, 760)))
     time.sleep(2)
@@ -90,8 +109,8 @@ def friendship():
     touch(Template(r"tpl1676697521844.png", record_pos=(0.124, -0.212), resolution=(1351, 760)))
 
 def daily_exploration():
-    wait(Template(r"tpl1676697573430.png", record_pos=(-0.217, 0.104), resolution=(1351, 760)))
-    touch(Template(r"tpl1676697595612.png", record_pos=(-0.202, 0.152), resolution=(1351, 760)))
+    pos=wait(Template(r"tpl1676697573430.png", record_pos=(-0.217, 0.104), resolution=(1351, 760)))
+    touch((pos[0],pos[1]+75),2)
     time.sleep(10)
     touch(Template(r"tpl1676697639058.png", record_pos=(0.023, 0.255), resolution=(1351, 760)))
     time.sleep(2)
@@ -114,9 +133,9 @@ def daily_exploration():
 
 def daily_tower():
     wait(Template(r"tpl1676698007008.png", record_pos=(-0.216, 0.103), resolution=(1351, 760)))
-    touch(Template(r"tpl1676698017827.png", record_pos=(0.199, 0.097), resolution=(1351, 760)))
+    touch(Template(r"tpl1676698017827.png", record_pos=(0.199, 0.097), resolution=(1351, 760)),times=2)
     time.sleep(3)
-    touch(Template(r"tpl1676698056540.png", record_pos=(0.094, -0.095), resolution=(1351, 760)))
+    touch(Template(r"tpl1676698056540.png", record_pos=(0.094, -0.095), resolution=(1351, 760)),times=2)
     time.sleep(2)
     touch(Template(r"tpl1676698094906.png", record_pos=(0.092, -0.051), resolution=(1351, 760)))
     time.sleep(2)
@@ -124,33 +143,29 @@ def daily_tower():
     touch((pos[0],pos[1]+300))
     time.sleep(2)
     touch(Template(r"tpl1676698234345.png", record_pos=(0.091, 0.249), resolution=(1336, 760)))
-    time.sleep(10)
+    time.sleep(13)
     touch(Template(r"tpl1676698754093.png", record_pos=(0.485, -0.264), resolution=(1351, 760)))
     time.sleep(1)
     touch(Template(r"tpl1676698346100.png", record_pos=(-0.065, 0.236), resolution=(1351, 760)))
     time.sleep(3)
     touch(Template(r"tpl1676698371751.png", record_pos=(-0.456, 0.241), resolution=(1351, 760)))
-    time.sleep(10)
+    time.sleep(7)
     touch(Template(r"tpl1676698413078.png", record_pos=(-0.414, 0.249), resolution=(1351, 760)))
     time.sleep(3)
 
-def daily_jjc():
+def jjc_reward():
     wait(Template(r"tpl1676698007008.png", record_pos=(-0.216, 0.103), resolution=(1351, 760)))
-    touch(Template(r"tpl1676698017827.png", record_pos=(0.199, 0.097), resolution=(1351, 760)))        
+    touch(Template(r"tpl1676698017827.png", record_pos=(0.199, 0.097), resolution=(1351, 760)),2)        
     time.sleep(2)
-    touch(Template(r"tpl1676699010565.png", record_pos=(0.075, 0.064), resolution=(1351, 760)),times=3)
-    time.sleep(3)
-    touch(Template(r"tpl1676699034767.png", record_pos=(-0.107, 0.021), resolution=(1351, 760)),times=3)
+    pos=wait(Template(r"tpl1676699010565.png", record_pos=(0.075, 0.064), resolution=(1351, 760)))
     time.sleep(2)
-    for i in range(3):
-        touch(Template(r"tpl1681439457236.png", record_pos=(0.102, 0.026), resolution=(1333, 750)))
-        time.sleep(2)
-        touch(Template(r"tpl1676699251714.png", record_pos=(-0.001, 0.178), resolution=(1351, 760)),times=3)
-        wait(Template(r"tpl1676699288948.png", record_pos=(-0.002, 0.135), resolution=(1351, 760)),timeout=60)
-        touch((1000,300),times=5)
-        time.sleep(5)
-    touch(Template(r"tpl1676699686196.png", record_pos=(-0.413, 0.25), resolution=(1351, 760)))
-    time.sleep(8)
+    touch((pos[0]+20,pos[1]-65),2)
+    time.sleep(1)
+    touch(Template(r"tpl1702621153495.png", record_pos=(0.054, 0.218), resolution=(1285, 723)),2)
+    time.sleep(1)
+    touch(Template(r"tpl1676696913124.png", record_pos=(0.001, 0.09), resolution=(1350, 760)))
+    touch(Template(r"tpl1702621393524.png", record_pos=(-0.414, 0.249), resolution=(1285, 723)),2)
+    time.sleep(5)
 
 nikke_dictionary={
     '拉普拉斯': Template(r"tpl1676701278570.png", record_pos=(-0.206, -0.086), resolution=(1351, 760)),
@@ -219,8 +234,6 @@ nikke_dictionary={
 
     '阿莉亚': Template(r"tpl1676703167803.png", record_pos=(0.39, 0.154), resolution=(1351, 760)),
     '桑迪': Template(r"tpl1678148218237.png", record_pos=(-0.229, 0.177), resolution=(1353, 790)),
-    '玛奇玛': Template(r"tpl1678148285038.png", record_pos=(-0.236, 0.075), resolution=(1342, 790)),
-    '帕瓦': Template(r"tpl1678148354009.png", record_pos=(0.075, 0.075), resolution=(1342, 790))
 }
 
 def zixun(pos):
@@ -270,68 +283,81 @@ def daily_zixun():
     
 def enter_moni():
     wait(Template(r"tpl1676707579208.png", record_pos=(-0.215, 0.104), resolution=(1351, 760)))
-    touch(Template(r"tpl1676707586455.png", record_pos=(0.201, 0.097), resolution=(1351, 760)))
+    touch(Template(r"tpl1676707586455.png", record_pos=(0.201, 0.097), resolution=(1351, 760)),times=2)
     time.sleep(2)
-    touch(Template(r"tpl1676707608394.png", record_pos=(-0.094, 0.001), resolution=(1351, 760)))
+    touch(Template(r"tpl1676707608394.png", record_pos=(-0.094, 0.001), resolution=(1351, 760)),2)
     time.sleep(3)
     touch(Template(r"tpl1676707621503.png", record_pos=(0.0, 0.051), resolution=(1351, 760)))
     time.sleep(1)
-    touch(Template(r"tpl1676707635667.png", record_pos=(-0.0, -0.002), resolution=(1351, 760)))
+    touch((640,390),2)
     time.sleep(1)
-    loc=wait(Template(r"tpl1676707635667.png", record_pos=(-0.0, -0.002), resolution=(1351, 760)))
-    touch((loc[0]+20,loc[1]+135),times=3)
-    time.sleep(1)
-    touch(Template(r"tpl1676707657509.png", record_pos=(0.0, 0.193), resolution=(1351, 760)))
-
+    touch((750,475),2)
+    touch(Template(r"tpl1676707621503.png", record_pos=(0.0, 0.051), resolution=(1351, 760)))
 def single_room():
     try:
-        touch(Template(r"tpl1679110872782.png", record_pos=(-0.119, 0.045), resolution=(1465, 824)),times=3)
+        flag=exists(Template(r"tpl1702622669714.png", record_pos=(-0.028, 0.043), resolution=(1285, 723)))
+        print('here',flag)
+        if flag==False:
+            raise Exception('未找到普通关卡')
+        pos=wait(Template(r"tpl1702622669714.png", record_pos=(-0.028, 0.043), resolution=(1285, 723)),timeout=10)
+        touch((pos[0]+40,pos[1]+80),1)
         time.sleep(1)
-        touch(Template(r"tpl1679110926962.png", record_pos=(0.084, 0.239), resolution=(1465, 824)))
-        time.sleep(30)
-        wait(Template(r"tpl1679111019424.png", record_pos=(-0.002, 0.213), resolution=(1465, 824)),timeout=90)
-        time.sleep(1)
-        touch(Template(r"tpl1679111019424.png", record_pos=(-0.002, 0.213), resolution=(1465, 824)),times=2)
+        touch(Template(r"tpl1702622781165.png", record_pos=(0.086, 0.202), resolution=(1285, 723)))
         time.sleep(3)
-        try:
-            touch(Template(r"tpl1679111140861.png", record_pos=(-0.096, -0.084), resolution=(1465, 824)))
-        except:
-            try:
-                touch(Template(r"tpl1679111163455.png", record_pos=(-0.099, 0.082), resolution=(1465, 824)))
-            except:
-                print("go on")
+        touch(Template(r"tpl1702622799428.png", record_pos=(-0.073, 0.193), resolution=(1285, 723)))
         time.sleep(1)
-        touch(Template(r"tpl1679111210106.png", record_pos=(0.057, 0.192), resolution=(1465, 824)))
+        touch(Template(r"tpl1676697508039.png", record_pos=(0.008, 0.07), resolution=(1351, 760)))
     except:
-        print("sth wrong")
-    
+        try:
+            touch(Template(r"tpl1702623620693.png", record_pos=(0.088, 0.066), resolution=(1285, 723)),2)
+            try:
+                touch(Template(r"tpl1702622799428.png", record_pos=(-0.073, 0.193), resolution=(1285, 723)))
+                time.sleep(1)
+                touch(Template(r"tpl1676697508039.png", record_pos=(0.008, 0.07), resolution=(1351, 760)))
+                time.sleep(1)
+                touch(Template(r"tpl1676697508039.png", record_pos=(0.008, 0.07), resolution=(1351, 760)))
+            except:
+                touch(Template(r"tpl1702623698601.png", record_pos=(-0.092, 0.159), resolution=(1285, 723)),2)
+                touch(Template(r"tpl1676697508039.png", record_pos=(0.008, 0.07), resolution=(1351, 760)))
+                time.sleep(1)
+                touch(Template(r"tpl1676697508039.png", record_pos=(0.008, 0.07), resolution=(1351, 760)))
+                time.sleep(3)
+                confirm_pos=exists(Template(r"tpl1676697508039.png", record_pos=(0.008, 0.07), resolution=(1351, 760)))
+                if confirm_pos:
+                    touch(confirm_pos)
+        except:
+            print("sth wrong")
+            touch(Template(r"tpl1702621393524.png", record_pos=(-0.414, 0.249), resolution=(1285, 723)),2)
+        
+        
 def final():
     try:
-        loc=wait(Template(r"tpl1679111567929.png", record_pos=(0.045, 0.067), resolution=(1465, 824)))
+        loc=wait(Template(r"tpl1702629084147.png", record_pos=(0.046, 0.068), resolution=(1285, 723)))
         time.sleep(1)
         touch(loc,times=2)
         time.sleep(1)
-        touch(Template(r"tpl1679111650586.png", record_pos=(-0.092, 0.185), resolution=(1465, 824)))
-        time.sleep(2)
+        touch(Template(r"tpl1702629749750.png", record_pos=(-0.037, 0.18), resolution=(1285, 723)),2)
         touch(Template(r"tpl1679111671393.png", record_pos=(0.047, 0.244), resolution=(1465, 824)))
         time.sleep(1)
-        touch(Template(r"tpl1679111742516.png", record_pos=(-0.006, 0.184), resolution=(1465, 824)))
+        touch(Template(r"tpl1676697508039.png", record_pos=(0.008, 0.07), resolution=(1351, 760)))
     except:
-        touch(Template(r"tpl1679112838949.png", record_pos=(-0.099, -0.056), resolution=(1465, 824)))
-        time.sleep(1)
-        touch(Template(r"tpl1679111671393.png", record_pos=(0.047, 0.244), resolution=(1465, 824)))
-        time.sleep(1)
-        touch(Template(r"tpl1679111742516.png", record_pos=(-0.006, 0.184), resolution=(1465, 824)))
+        print('sth wrong')
     try:
         time.sleep(1)
         touch(Template(r"tpl1679111763072.png", record_pos=(-0.001, 0.066), resolution=(1465, 824)))
         time.sleep(1)
+        blank=exists(Template(r"tpl1702629360022.png", record_pos=(0.12, 0.148), resolution=(1285, 723)))
+        if blank:
+            touch(blank)
+            time.sleep(2)
+            touch(Template(r"tpl1702629454212.png", record_pos=(0.377, 0.247), resolution=(1285, 723)))
+            touch(Template(r"tpl1702629529444.png", record_pos=(0.457, 0.249), resolution=(1285, 723)))
         touch(Template(r"tpl1679111775502.png", record_pos=(0.086, 0.24), resolution=(1465, 824)))
-        time.sleep(30)
-        wait(Template(r"tpl1679111019424.png", record_pos=(-0.002, 0.213), resolution=(1465, 824)),timeout=90)
+        time.sleep(20)
+        pos=wait(Template(r"tpl1679111019424.png", record_pos=(-0.002, 0.213), resolution=(1465, 824)),timeout=90)
         time.sleep(1)
-        touch(Template(r"tpl1679111019424.png", record_pos=(-0.002, 0.213), resolution=(1465, 824)))
-        time.sleep(3)
+        touch(pos,2)
+        time.sleep(2)
         touch(Template(r"tpl1679111855003.png", record_pos=(-0.001, 0.119), resolution=(1465, 824)))
         time.sleep(1)
         touch(Template(r"tpl1679111871425.png", record_pos=(-0.008, 0.07), resolution=(1465, 824)))
@@ -341,24 +367,28 @@ def final():
         touch(Template(r"tpl1679111909022.png", record_pos=(0.058, 0.218), resolution=(1465, 824)))
         time.sleep(1)
         loc=wait(Template(r"tpl1679111937832.png", record_pos=(-0.001, -0.117), resolution=(1465, 824)))
-        touch((loc[0]+70,loc[1]+260))
+        touch((loc[0]+70,loc[1]+245))
         time.sleep(3)
-        touch(Template(r"tpl1679111968514.png", record_pos=(-0.414, 0.248), resolution=(1465, 824)))
+        touch(Template(r"tpl1679111968514.png", record_pos=(-0.414, 0.248), resolution=(1465, 824)),times=3)
     except:
         print("sth wrong")
+
 def daily_moni():
     try:
         enter_moni()
         for i in range(5):
             single_room()
+#             sleep(1)
         final()
+        time.sleep(5)
     except:
         print("sth wrong")
 def daily_zhaomu():
     wait(Template(r"tpl1676707579208.png", record_pos=(-0.215, 0.104), resolution=(1351, 760)))
     touch(Template(r"tpl1676861667173.png", record_pos=(0.111, 0.242), resolution=(1381, 777)))
+    time.sleep(2)
     touch(Template(r"tpl1676862348252.png", record_pos=(-0.481, 0.013), resolution=(1381, 777)))
-    time.sleep(3)
+    time.sleep(1)
     touch(Template(r"tpl1676861736951.png", record_pos=(-0.071, 0.181), resolution=(1381, 777)))
     time.sleep(8)
     wait(Template(r"tpl1676861805519.png", record_pos=(0.467, -0.268), resolution=(1381, 777)))
@@ -367,39 +397,30 @@ def daily_zhaomu():
     touch(Template(r"tpl1676861826846.png", record_pos=(-0.065, 0.226), resolution=(1381, 777)))
     time.sleep(2)
     touch(Template(r"tpl1676861848464.png", record_pos=(0.002, 0.244), resolution=(1381, 777)))
-
-def outpost_again():
-    wait(Template(r"tpl1676951630467.png", record_pos=(-0.215, 0.104), resolution=(1381, 777)))
-    touch(Template(r"tpl1676951672662.png", record_pos=(-0.231, 0.187), resolution=(1381, 777)))
-    time.sleep(1)
-    touch(Template(r"tpl1676695148158.png", record_pos=(0.063, 0.187), resolution=(1349, 759)))
-    wait(Template(r"tpl1676694098706.png", record_pos=(-0.001, -0.094), resolution=(1349, 759)))
-    time.sleep(2)
-    touch(Template(r"tpl1676694106295.png", record_pos=(-0.0, 0.089), resolution=(1349, 759)))
     
 def daily_mission_award():
     wait(Template(r"tpl1676951851738.png", record_pos=(-0.217, 0.104), resolution=(1381, 777)))
     touch(Template(r"tpl1676951862748.png", record_pos=(0.37, -0.226), resolution=(1381, 777)))
-    time.sleep(1)
-    touch(Template(r"tpl1676951884335.png", record_pos=(0.094, 0.225), resolution=(1381, 777)))
+    pos=wait(Template(r"tpl1676951884335.png", record_pos=(0.094, 0.225), resolution=(1381, 777)))
+    touch(pos)
     time.sleep(3)
-    touch(Template(r"tpl1676951884335.png", record_pos=(0.094, 0.225), resolution=(1381, 777)))
-    time.sleep(3)
-    touch(Template(r"tpl1676951953575.png", record_pos=(-0.0, 0.091), resolution=(1381, 777)))
+    touch(pos)
+    pos_new=wait(Template(r"tpl1676951953575.png", record_pos=(-0.0, 0.091), resolution=(1381, 777)))
+    touch(pos_new,2)
     time.sleep(2)
     touch(Template(r"tpl1676951977172.png", record_pos=(0.131, -0.242), resolution=(1381, 777)))
-
     
 if __name__=="__main__":
     email()
-    outpost()
-    daily_shop()
     friendship()
+    outpost()
+    daily_sweep()
+    daily_shop()
     daily_exploration()
     daily_tower()
-#     daily_jjc()
-#     daily_zixun()
+    jjc_reward()
     daily_zhaomu()
-    outpost_again()
+    daily_moni()
+    outpost()
     daily_mission_award()
-#     daily_moni()
+#     daily_zixun()
